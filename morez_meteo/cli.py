@@ -24,11 +24,16 @@ def run():
     existing = load_csv(config.CSV_FILE)
     log.info(f"Données existantes : {len(existing)} jours")
 
-    # 2. Récupérer depuis la dernière date connue (ou depuis HISTORY_START)
+    # 2. Récupérer depuis HISTORY_START (backfill si données manquantes)
     if existing:
-        # Reprendre depuis le dernier jour connu (pour éventuelle correction)
-        last_date = sorted(existing.keys())[-1]
-        fetch_start = last_date  # Re-fetch le dernier jour au cas où
+        first_date = sorted(existing.keys())[0]
+        # Backfill si le CSV ne remonte pas jusqu'à HISTORY_START
+        if first_date > config.HISTORY_START:
+            log.info(f"Backfill détecté : {config.HISTORY_START} → {first_date}")
+            fetch_start = config.HISTORY_START
+        else:
+            last_date = sorted(existing.keys())[-1]
+            fetch_start = last_date  # Re-fetch le dernier pour correction éventuelle
     else:
         fetch_start = config.HISTORY_START
 

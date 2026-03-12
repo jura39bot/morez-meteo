@@ -6,6 +6,7 @@
 
 | Année | Total (mm) |
 |-------|-----------|
+| 2025 | **1566.3** |
 | 2026 | **423.3** |
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2026)
@@ -33,21 +34,31 @@
 |---|-------|-----------|
 | 1 | Grenoble | 1704.4 |
 | 2 | Chambéry | 1623.2 |
-| 3 | Saint-Claude | 1465.1 |
-| 4 | Lons-le-Saunier | 1272.2 |
-| 5 | Besançon | 1251.9 |
-| 6 | Aurillac | 1216.7 |
-| 7 | Brest | 1188.4 |
-| 8 | Pau | 1133.8 |
-| 9 | Montpellier | 1073.3 |
-| 10 | La Rochelle | 1008.9 |
-
-> 📍 Morez est **26e** sur 26 villes (0.0 mm)
+| 3 | **Morez ⬅️** | **1566.3** |
+| 4 | Saint-Claude | 1465.1 |
+| 5 | Lons-le-Saunier | 1272.2 |
+| 6 | Besançon | 1251.9 |
+| 7 | Aurillac | 1216.7 |
+| 8 | Brest | 1188.4 |
+| 9 | Pau | 1133.8 |
+| 10 | Montpellier | 1073.3 |
 
 ## 📆 Bilan mensuel
 
 | Mois | Total (mm) | Jours de pluie | Jours mesurés |
 |------|-----------|----------------|--------------|
+| Janvier 2025 | 165.4 | 18 | 31 |
+| Février 2025 | 75.5 | 12 | 28 |
+| Mars 2025 | 76.2 | 18 | 31 |
+| Avril 2025 | 144.7 | 18 | 30 |
+| Mai 2025 | 93.4 | 21 | 31 |
+| Juin 2025 | 102.9 | 16 | 30 |
+| Juillet 2025 | 138.0 | 23 | 31 |
+| Août 2025 | 110.1 | 13 | 31 |
+| Septembre 2025 | 200.7 | 21 | 30 |
+| Octobre 2025 | 219.1 | 14 | 31 |
+| Novembre 2025 | 191.7 | 18 | 30 |
+| Décembre 2025 | 48.6 | 12 | 31 |
 | Janvier 2026 | 158.9 | 18 | 31 |
 | Février 2026 | 235.4 | 19 | 28 |
 | Mars 2026 | 29.0 | 6 | 12 |
@@ -56,6 +67,7 @@
 
 | Semaine | Période | Total (mm) |
 |---------|---------|-----------|
+| 2025-W52 | 22/12 → 28/12/2025 | 1.3 |
 | 2026-W01 | 29/12 → 04/01/2026 | 5.8 |
 | 2026-W02 | 05/01 → 11/01/2026 | 58.9 |
 | 2026-W03 | 12/01 → 18/01/2026 | 6.1 |
@@ -107,8 +119,8 @@
 
 - **Cette semaine** : 28.4 mm
 - **Ce mois** : 29.0 mm
-- **Total depuis le 01/01/2026** : 423.3 mm
-- **Nombre de jours mesurés** : 71
+- **Total depuis le 01/01/2026** : 1989.6 mm
+- **Nombre de jours mesurés** : 436
 
 ---
 *Source : [Open-Meteo](https://open-meteo.com/) · [Archive API](https://archive-api.open-meteo.com/)*
