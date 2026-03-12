@@ -13,7 +13,7 @@ LOCATION = "Morez, Jura (39)"
 TIMEZONE = "Europe/Paris"
 
 # Données depuis le
-HISTORY_START = "2026-01-01"
+HISTORY_START = "2025-01-01"
 
 # Dossiers
 DATA_DIR = BASE_DIR / "data"

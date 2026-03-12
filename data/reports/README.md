@@ -25,6 +25,25 @@
 | 9 | Nantes | 365.7 |
 | 10 | La Rochelle | 361.5 |
 
+## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2025)
+
+> Période : 01/01/2025 → 31/12/2025 · 26 villes comparées
+
+| # | Ville | Total (mm) |
+|---|-------|-----------|
+| 1 | Grenoble | 1704.4 |
+| 2 | Chambéry | 1623.2 |
+| 3 | Saint-Claude | 1465.1 |
+| 4 | Lons-le-Saunier | 1272.2 |
+| 5 | Besançon | 1251.9 |
+| 6 | Aurillac | 1216.7 |
+| 7 | Brest | 1188.4 |
+| 8 | Pau | 1133.8 |
+| 9 | Montpellier | 1073.3 |
+| 10 | La Rochelle | 1008.9 |
+
+> 📍 Morez est **26e** sur 26 villes (0.0 mm)
+
 ## 📆 Bilan mensuel
 
 | Mois | Total (mm) | Jours de pluie | Jours mesurés |

@@ -44,18 +44,30 @@ def run():
     # 5. Générer les stats
     stats = build_stats(merged)
 
-    # 6. Classement villes françaises (cache 7 jours)
-    year_start = f"{date.today().year}-01-01"
-    year_end = today
-    log.info("Classement pluviométrique villes françaises...")
-    cities_data = fetch_all_cities(year_start, year_end, config.DATA_DIR)
-    morez_total = stats["by_year"].get(str(date.today().year), 0)
-    ranking = build_ranking(morez_total, cities_data, top_n=10)
-    log.info(f"Morez : {ranking['morez_rank']}e/{ranking['total_cities']} villes françaises")
+    # 6. Classement villes françaises — année courante (cache 7j)
+    cur_year = date.today().year
+    prev_year = cur_year - 1
+    log.info(f"Classement pluviométrique {cur_year}...")
+    cities_cur = fetch_all_cities(f"{cur_year}-01-01", today, config.DATA_DIR)
+    morez_cur = stats["by_year"].get(str(cur_year), 0)
+    ranking_cur = build_ranking(morez_cur, cities_cur, top_n=10)
+    log.info(f"Morez {cur_year} : {ranking_cur['morez_rank']}e/{ranking_cur['total_cities']} villes")
 
-    # 7. Générer rapports
+    # 7. Classement villes françaises — année précédente (cache permanent)
+    log.info(f"Classement pluviométrique {prev_year}...")
+    cities_prev = fetch_all_cities(f"{prev_year}-01-01", f"{prev_year}-12-31", config.DATA_DIR)
+    morez_prev = stats["by_year"].get(str(prev_year), 0)
+    ranking_prev = build_ranking(morez_prev, cities_prev, top_n=10)
+    log.info(f"Morez {prev_year} : {ranking_prev['morez_rank']}e/{ranking_prev['total_cities']} villes")
+
+    # 8. Générer rapports
     save_json(config.REPORTS_DIR, stats)
-    md = generate_markdown(merged, stats, config.LOCATION, ranking=ranking)
+    md = generate_markdown(
+        merged, stats, config.LOCATION,
+        ranking_current=ranking_cur,
+        ranking_prev=ranking_prev,
+        prev_year=str(prev_year),
+    )
     save_markdown(config.REPORTS_DIR, md)
 
     # 6. Commit + push GitHub

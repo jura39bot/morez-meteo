@@ -16,7 +16,6 @@ from .french_cities import FRENCH_CITIES
 log = logging.getLogger(__name__)
 
 ARCHIVE_URL = "https://archive-api.open-meteo.com/v1/archive"
-CACHE_FILE_NAME = "cities_precipitation_cache.json"
 CACHE_TTL_DAYS = 7  # Rafraîchi une fois par semaine
 
 
@@ -45,35 +44,37 @@ def _fetch_city_total(name: str, lat: float, lon: float, start: str, end: str) -
 def fetch_all_cities(start: str, end: str, cache_dir: Path) -> dict[str, float]:
     """
     Récupère les précipitations de toutes les villes de référence.
-    Utilise un cache JSON (TTL 7 jours) pour éviter trop d'appels API.
+    Cache par période (nom fichier inclut start+end).
+    TTL 7 jours pour l'année courante, permanent pour les années passées.
     """
-    cache_path = cache_dir / CACHE_FILE_NAME
-    today = date.today().isoformat()
+    # Cache nommé par période pour séparer 2025 de 2026
+    safe_key = f"{start}_{end}".replace("-", "")
+    cache_path = cache_dir / f"cities_cache_{safe_key}.json"
+    today = date.today()
+    end_d = date.fromisoformat(end)
+    is_past_year = end_d.year < today.year  # Année révolue → cache permanent
 
-    # Charger le cache si valide
     if cache_path.exists():
         try:
             cached = json.loads(cache_path.read_text())
             cached_date = date.fromisoformat(cached.get("fetched_date", "2000-01-01"))
-            cache_end = cached.get("end_date", "")
-            if (date.today() - cached_date).days < CACHE_TTL_DAYS and cache_end == end:
-                log.info(f"Cache villes valide ({cached_date}) — {len(cached['data'])} villes")
+            if is_past_year or (today - cached_date).days < CACHE_TTL_DAYS:
+                log.info(f"Cache villes valide ({cached_date}, {start[:4]}) — {len(cached['data'])} villes")
                 return cached["data"]
         except Exception:
             pass
 
-    log.info(f"Fetch précipitations {len(FRENCH_CITIES)} villes françaises ({start} → {end})...")
+    log.info(f"Fetch précipitations {len(FRENCH_CITIES)} villes ({start} → {end})...")
     results = {}
     for name, lat, lon in FRENCH_CITIES:
         total = _fetch_city_total(name, lat, lon, start, end)
         results[name] = total
         log.debug(f"  {name}: {total} mm")
-        time.sleep(0.3)  # Politesse API
+        time.sleep(0.3)
 
-    # Sauvegarder le cache
     cache_dir.mkdir(parents=True, exist_ok=True)
     cache_path.write_text(json.dumps({
-        "fetched_date": today,
+        "fetched_date": today.isoformat(),
         "start_date": start,
         "end_date": end,
         "data": results,

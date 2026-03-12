@@ -68,11 +68,42 @@ def save_json(reports_dir: Path, stats: dict) -> None:
     log.info(f"JSON sauvegardé : {path}")
 
 
+def _ranking_table(ranking: dict, year: str, today_str: str, full_year: bool = False) -> list[str]:
+    """Génère le bloc Markdown d'un classement pour une année donnée."""
+    period = f"01/01/{year} → 31/12/{year}" if full_year else f"01/01/{year} → {today_str}"
+    lines = [
+        f"## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine ({year})",
+        f"",
+        f"> Période : {period} · {ranking['total_cities']} villes comparées",
+        f"",
+        "| # | Ville | Total (mm) |",
+        "|---|-------|-----------|",
+    ]
+    for i, (city, total) in enumerate(ranking["top"], 1):
+        is_morez = city == "Morez"
+        marker = " ⬅️" if is_morez else ""
+        b = "**" if is_morez else ""
+        lines.append(f"| {i} | {b}{city}{marker}{b} | {b}{total:.1f}{b} |")
+
+    morez_rank = ranking["morez_rank"]
+    total_cities = ranking["total_cities"]
+    if morez_rank > 10:
+        lines += [
+            f"",
+            f"> 📍 Morez est **{morez_rank}e** sur {total_cities} villes "
+            f"({ranking['morez_total']:.1f} mm)",
+        ]
+    lines.append("")
+    return lines
+
+
 def generate_markdown(
     data: dict[str, float],
     stats: dict,
     location: str,
-    ranking: dict | None = None,
+    ranking_current: dict | None = None,
+    ranking_prev: dict | None = None,
+    prev_year: str | None = None,
 ) -> str:
     """Génère le rapport Markdown complet."""
     today = date.today()
@@ -90,34 +121,15 @@ def generate_markdown(
         lines.append(f"| {yr} | **{total:.1f}** |")
     lines.append("")
 
-    # ── Top 10 villes les plus pluvieuses (France métropolitaine) ─────────────
-    if ranking:
-        yr_label = today.strftime("%Y")
-        start_label = f"01/01/{yr_label}"
-        lines += [
-            f"## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine ({yr_label})",
-            f"",
-            f"> Période : {start_label} → {today.strftime('%d/%m/%Y')} · {ranking['total_cities']} villes comparées",
-            f"",
-            "| # | Ville | Total (mm) |",
-            "|---|-------|-----------|",
-        ]
-        for i, (city, total) in enumerate(ranking["top"], 1):
-            is_morez = city == "Morez"
-            marker = " ⬅️" if is_morez else ""
-            bold_open = "**" if is_morez else ""
-            bold_close = "**" if is_morez else ""
-            lines.append(f"| {i} | {bold_open}{city}{marker}{bold_close} | {bold_open}{total:.1f}{bold_close} |")
+    # ── Top 10 — Année courante ────────────────────────────────────────────────
+    yr_label = today.strftime("%Y")
+    today_str = today.strftime("%d/%m/%Y")
+    if ranking_current:
+        lines += _ranking_table(ranking_current, yr_label, today_str, full_year=False)
 
-        morez_rank = ranking["morez_rank"]
-        total_cities = ranking["total_cities"]
-        if morez_rank > 10:
-            lines += [
-                f"",
-                f"> 📍 Morez est **{morez_rank}e** sur {total_cities} villes "
-                f"({ranking['morez_total']:.1f} mm)",
-            ]
-        lines.append("")
+    # ── Top 10 — Année précédente (bilan complet) ─────────────────────────────
+    if ranking_prev and prev_year:
+        lines += _ranking_table(ranking_prev, prev_year, "", full_year=True)
 
     # ── Bilan mensuel ─────────────────────────────────────────────────────────
     lines += ["## 📆 Bilan mensuel", ""]
