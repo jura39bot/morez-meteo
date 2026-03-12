@@ -14,6 +14,7 @@ def run():
     from .fetcher import fetch_precipitation
     from .store import load_csv, save_csv, merge
     from .reporter import build_stats, save_json, generate_markdown, save_markdown
+    from .city_ranker import fetch_all_cities, build_ranking
     from .git_push import commit_and_push
 
     today = date.today().isoformat()
@@ -40,10 +41,21 @@ def run():
     # 4. Sauvegarder CSV
     save_csv(config.CSV_FILE, merged)
 
-    # 5. Générer rapports
+    # 5. Générer les stats
     stats = build_stats(merged)
+
+    # 6. Classement villes françaises (cache 7 jours)
+    year_start = f"{date.today().year}-01-01"
+    year_end = today
+    log.info("Classement pluviométrique villes françaises...")
+    cities_data = fetch_all_cities(year_start, year_end, config.DATA_DIR)
+    morez_total = stats["by_year"].get(str(date.today().year), 0)
+    ranking = build_ranking(morez_total, cities_data, top_n=10)
+    log.info(f"Morez : {ranking['morez_rank']}e/{ranking['total_cities']} villes françaises")
+
+    # 7. Générer rapports
     save_json(config.REPORTS_DIR, stats)
-    md = generate_markdown(merged, stats, config.LOCATION)
+    md = generate_markdown(merged, stats, config.LOCATION, ranking=ranking)
     save_markdown(config.REPORTS_DIR, md)
 
     # 6. Commit + push GitHub

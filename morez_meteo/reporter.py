@@ -68,7 +68,12 @@ def save_json(reports_dir: Path, stats: dict) -> None:
     log.info(f"JSON sauvegardé : {path}")
 
 
-def generate_markdown(data: dict[str, float], stats: dict, location: str) -> str:
+def generate_markdown(
+    data: dict[str, float],
+    stats: dict,
+    location: str,
+    ranking: dict | None = None,
+) -> str:
     """Génère le rapport Markdown complet."""
     today = date.today()
     lines = [
@@ -84,6 +89,35 @@ def generate_markdown(data: dict[str, float], stats: dict, location: str) -> str
     for yr, total in stats["by_year"].items():
         lines.append(f"| {yr} | **{total:.1f}** |")
     lines.append("")
+
+    # ── Top 10 villes les plus pluvieuses (France métropolitaine) ─────────────
+    if ranking:
+        yr_label = today.strftime("%Y")
+        start_label = f"01/01/{yr_label}"
+        lines += [
+            f"## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine ({yr_label})",
+            f"",
+            f"> Période : {start_label} → {today.strftime('%d/%m/%Y')} · {ranking['total_cities']} villes comparées",
+            f"",
+            "| # | Ville | Total (mm) |",
+            "|---|-------|-----------|",
+        ]
+        for i, (city, total) in enumerate(ranking["top"], 1):
+            is_morez = city == "Morez"
+            marker = " ⬅️ **Morez**" if is_morez else ""
+            bold_open = "**" if is_morez else ""
+            bold_close = "**" if is_morez else ""
+            lines.append(f"| {i} | {bold_open}{city}{bold_close}{marker} | {bold_open}{total:.1f}{bold_close} |")
+
+        morez_rank = ranking["morez_rank"]
+        total_cities = ranking["total_cities"]
+        if morez_rank > 10:
+            lines += [
+                f"",
+                f"> 📍 Morez est **{morez_rank}e** sur {total_cities} villes "
+                f"({ranking['morez_total']:.1f} mm)",
+            ]
+        lines.append("")
 
     # ── Bilan mensuel ─────────────────────────────────────────────────────────
     lines += ["## 📆 Bilan mensuel", ""]

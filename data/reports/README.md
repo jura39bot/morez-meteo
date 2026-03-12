@@ -8,6 +8,23 @@
 |-------|-----------|
 | 2026 | **423.3** |
 
+## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2026)
+
+> Période : 01/01/2026 → 12/03/2026 · 26 villes comparées
+
+| # | Ville | Total (mm) |
+|---|-------|-----------|
+| 1 | Brest | 539.6 |
+| 2 | Pau | 486.4 |
+| 3 | Tarbes | 440.9 |
+| 4 | Montpellier | 431.4 |
+| 5 | Saint-Claude | 423.7 |
+| 6 | **Morez** ⬅️ **Morez** | **423.3** |
+| 7 | Grenoble | 411.4 |
+| 8 | Chambéry | 374.9 |
+| 9 | Nantes | 365.7 |
+| 10 | La Rochelle | 361.5 |
+
 ## 📆 Bilan mensuel
 
 | Mois | Total (mm) | Jours de pluie | Jours mesurés |
