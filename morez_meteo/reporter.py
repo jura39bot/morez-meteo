@@ -104,10 +104,10 @@ def generate_markdown(
         ]
         for i, (city, total) in enumerate(ranking["top"], 1):
             is_morez = city == "Morez"
-            marker = " ⬅️ **Morez**" if is_morez else ""
+            marker = " ⬅️" if is_morez else ""
             bold_open = "**" if is_morez else ""
             bold_close = "**" if is_morez else ""
-            lines.append(f"| {i} | {bold_open}{city}{bold_close}{marker} | {bold_open}{total:.1f}{bold_close} |")
+            lines.append(f"| {i} | {bold_open}{city}{marker}{bold_close} | {bold_open}{total:.1f}{bold_close} |")
 
         morez_rank = ranking["morez_rank"]
         total_cities = ranking["total_cities"]

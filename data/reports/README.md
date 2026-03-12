@@ -19,7 +19,7 @@
 | 3 | Tarbes | 440.9 |
 | 4 | Montpellier | 431.4 |
 | 5 | Saint-Claude | 423.7 |
-| 6 | **Morez** ⬅️ **Morez** | **423.3** |
+| 6 | **Morez ⬅️** | **423.3** |
 | 7 | Grenoble | 411.4 |
 | 8 | Chambéry | 374.9 |
 | 9 | Nantes | 365.7 |
