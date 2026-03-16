@@ -1,0 +1,32 @@
+{
+  "fetched_date": "2026-03-16",
+  "start_date": "2026-01-01",
+  "end_date": "2026-03-16",
+  "data": {
+    "Brest": 558.5,
+    "Cherbourg": 326.9,
+    "Rennes": 304.6,
+    "Nantes": 386.3,
+    "Rouen": 285.8,
+    "Lille": 216.3,
+    "Grenoble": 434.1,
+    "Chamb\u00e9ry": 397.8,
+    "Pau": 525.6,
+    "Tarbes": 470.4,
+    "Aurillac": 357.3,
+    "Le Puy-en-Velay": 191.0,
+    "Clermont-Ferrand": 151.4,
+    "Strasbourg": 192.8,
+    "\u00c9pinal": 238.6,
+    "Besan\u00e7on": 322.3,
+    "Lons-le-Saunier": 338.1,
+    "Saint-Claude": 460.0,
+    "La Rochelle": 381.0,
+    "Bordeaux": 331.7,
+    "Marseille": 263.6,
+    "Nice": 300.6,
+    "Montpellier": 450.5,
+    "Paris": 231.7,
+    "Lyon": 209.1
+  }
+}
