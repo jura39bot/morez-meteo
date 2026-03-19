@@ -44,22 +44,23 @@ def _fetch_city_total(name: str, lat: float, lon: float, start: str, end: str) -
 def fetch_all_cities(start: str, end: str, cache_dir: Path) -> dict[str, float]:
     """
     Récupère les précipitations de toutes les villes de référence.
-    Cache par période (nom fichier inclut start+end).
-    TTL 7 jours pour l'année courante, permanent pour les années passées.
+    Cache par année (stable key) pour l'année courante, permanent pour les années passées.
+    TTL 7 jours pour l'année courante.
     """
-    # Cache nommé par période pour séparer 2025 de 2026
-    safe_key = f"{start}_{end}".replace("-", "")
-    cache_path = cache_dir / f"cities_cache_{safe_key}.json"
     today = date.today()
     end_d = date.fromisoformat(end)
     is_past_year = end_d.year < today.year  # Année révolue → cache permanent
+
+    # Clé stable par année (pas par end_date) pour éviter un re-fetch quotidien
+    year_key = start[:4]
+    cache_path = cache_dir / f"cities_cache_{year_key}.json"
 
     if cache_path.exists():
         try:
             cached = json.loads(cache_path.read_text())
             cached_date = date.fromisoformat(cached.get("fetched_date", "2000-01-01"))
             if is_past_year or (today - cached_date).days < CACHE_TTL_DAYS:
-                log.info(f"Cache villes valide ({cached_date}, {start[:4]}) — {len(cached['data'])} villes")
+                log.info(f"Cache villes valide ({cached_date}, {year_key}) — {len(cached['data'])} villes")
                 return cached["data"]
         except Exception:
             pass
