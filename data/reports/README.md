@@ -1,30 +1,30 @@
 # 🌧️ Précipitations — Morez, Jura (39)
 
-> Données Open-Meteo · Mise à jour : 2026-03-25
+> Données Open-Meteo · Mise à jour : 2026-03-26
 
 ## 📅 Bilan annuel
 
 | Année | Total (mm) |
 |-------|-----------|
 | 2025 | **1566.3** |
-| 2026 | **468.0** |
+| 2026 | **488.6** |
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2026)
 
-> Période : 01/01/2026 → 25/03/2026 · 26 villes comparées
+> Période : 01/01/2026 → 26/03/2026 · 26 villes comparées
 
 | # | Ville | Total (mm) |
 |---|-------|-----------|
-| 1 | Brest | 558.9 |
-| 2 | Pau | 525.6 |
-| 3 | Tarbes | 470.4 |
-| 4 | **Morez ⬅️** | **468.0** |
-| 5 | Saint-Claude | 459.7 |
-| 6 | Montpellier | 450.5 |
-| 7 | Grenoble | 437.2 |
-| 8 | Chambéry | 397.8 |
-| 9 | Nantes | 386.3 |
-| 10 | La Rochelle | 381.2 |
+| 1 | Brest | 560.1 |
+| 2 | Pau | 532.7 |
+| 3 | **Morez ⬅️** | **488.6** |
+| 4 | Saint-Claude | 486.0 |
+| 5 | Grenoble | 481.1 |
+| 6 | Tarbes | 475.5 |
+| 7 | Montpellier | 464.2 |
+| 8 | Chambéry | 440.4 |
+| 9 | Nantes | 387.4 |
+| 10 | La Rochelle | 382.0 |
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2025)
 
@@ -61,7 +61,7 @@
 | Décembre 2025 | 48.6 | 12 | 31 |
 | Janvier 2026 | 158.9 | 18 | 31 |
 | Février 2026 | 235.4 | 19 | 28 |
-| Mars 2026 | 73.7 | 12 | 25 |
+| Mars 2026 | 94.3 | 13 | 26 |
 
 ## 📊 Bilan hebdomadaire (12 dernières semaines)
 
@@ -78,13 +78,12 @@
 | 2026-W10 | 02/03 → 08/03/2026 | 0.6 |
 | 2026-W11 | 09/03 → 15/03/2026 | 64.7 |
 | 2026-W12 | 16/03 → 22/03/2026 | 2.6 |
-| 2026-W13 | 23/03 → 29/03/2026 | 5.8 |
+| 2026-W13 | 23/03 → 29/03/2026 | 26.4 |
 
 ## 🗓️ Détail — 30 derniers jours
 
 | Date | Précipitations (mm) |
 |------|---------------------|
-| 2026-02-24 | ☀️ 0.0 |
 | 2026-02-25 | ☀️ 0.0 |
 | 2026-02-26 | ☀️ 0.0 |
 | 2026-02-27 | ☀️ 0.0 |
@@ -113,14 +112,15 @@
 | 2026-03-22 | 🌦️ 1.9 |
 | 2026-03-23 | 🌦️ 0.3 |
 | 2026-03-24 | ☀️ 0.0 |
-| 2026-03-25 | 🌧️ 5.5 |
+| 2026-03-25 | 🌧️ 15.9 |
+| 2026-03-26 | 🌧️ 10.2 |
 
 ## 📌 Résumé
 
-- **Cette semaine** : 5.8 mm
-- **Ce mois** : 73.7 mm
-- **Total depuis le 01/01/2026** : 2034.3 mm
-- **Nombre de jours mesurés** : 449
+- **Cette semaine** : 26.4 mm
+- **Ce mois** : 94.3 mm
+- **Total depuis le 01/01/2026** : 2054.9 mm
+- **Nombre de jours mesurés** : 450
 
 ---
 *Source : [Open-Meteo](https://open-meteo.com/) · [Archive API](https://archive-api.open-meteo.com/)*
