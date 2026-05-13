@@ -1,24 +1,24 @@
 # 🌧️ Précipitations — Morez, Jura (39)
 
-> Données Open-Meteo · Mise à jour : 2026-05-11
+> Données Open-Meteo · Mise à jour : 2026-05-13
 
 ## 📅 Bilan annuel
 
 | Année | Total (mm) |
 |-------|-----------|
 | 2025 | **1566.3** |
-| 2026 | **639.0** |
+| 2026 | **633.5** |
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2026)
 
-> Période : 01/01/2026 → 11/05/2026 · 26 villes comparées
+> Période : 01/01/2026 → 13/05/2026 · 26 villes comparées
 
 | # | Ville | Total (mm) |
 |---|-------|-----------|
 | 1 | Pau | 695.0 |
 | 2 | Brest | 654.0 |
 | 3 | Tarbes | 641.9 |
-| 4 | **Morez ⬅️** | **639.0** |
+| 4 | **Morez ⬅️** | **633.5** |
 | 5 | Grenoble | 626.4 |
 | 6 | Saint-Claude | 591.3 |
 | 7 | Montpellier | 578.2 |
@@ -63,7 +63,7 @@
 | Février 2026 | 235.4 | 19 | 28 |
 | Mars 2026 | 103.8 | 18 | 31 |
 | Avril 2026 | 59.6 | 10 | 30 |
-| Mai 2026 | 81.3 | 8 | 11 |
+| Mai 2026 | 75.8 | 10 | 13 |
 
 ## 📊 Bilan hebdomadaire (12 dernières semaines)
 
@@ -80,14 +80,12 @@
 | 2026-W17 | 20/04 → 26/04/2026 | 0.2 |
 | 2026-W18 | 27/04 → 03/05/2026 | 10.7 |
 | 2026-W19 | 04/05 → 10/05/2026 | 47.3 |
-| 2026-W20 | 11/05 → 17/05/2026 | 33.7 |
+| 2026-W20 | 11/05 → 17/05/2026 | 28.2 |
 
 ## 🗓️ Détail — 30 derniers jours
 
 | Date | Précipitations (mm) |
 |------|---------------------|
-| 2026-04-12 | 🌧️ 23.7 |
-| 2026-04-13 | 🌧️ 16.3 |
 | 2026-04-14 | 🌦️ 1.1 |
 | 2026-04-15 | ☀️ 0.0 |
 | 2026-04-16 | ☀️ 0.0 |
@@ -115,14 +113,16 @@
 | 2026-05-08 | 🌦️ 0.8 |
 | 2026-05-09 | ☀️ 0.1 |
 | 2026-05-10 | 🌧️ 6.7 |
-| 2026-05-11 | 🌧️ 33.7 |
+| 2026-05-11 | 🌧️ 22.8 |
+| 2026-05-12 | 🌦️ 4.3 |
+| 2026-05-13 | 🌦️ 1.1 |
 
 ## 📌 Résumé
 
-- **Cette semaine** : 33.7 mm
-- **Ce mois** : 81.3 mm
-- **Total depuis le 01/01/2026** : 2205.3 mm
-- **Nombre de jours mesurés** : 496
+- **Cette semaine** : 28.2 mm
+- **Ce mois** : 75.8 mm
+- **Total depuis le 01/01/2026** : 2199.8 mm
+- **Nombre de jours mesurés** : 498
 
 ---
 *Source : [Open-Meteo](https://open-meteo.com/) · [Archive API](https://archive-api.open-meteo.com/)*
