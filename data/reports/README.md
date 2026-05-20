@@ -1,24 +1,24 @@
 # 🌧️ Précipitations — Morez, Jura (39)
 
-> Données Open-Meteo · Mise à jour : 2026-05-19
+> Données Open-Meteo · Mise à jour : 2026-05-20
 
 ## 📅 Bilan annuel
 
 | Année | Total (mm) |
 |-------|-----------|
 | 2025 | **1566.3** |
-| 2026 | **672.1** |
+| 2026 | **674.7** |
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2026)
 
-> Période : 01/01/2026 → 19/05/2026 · 26 villes comparées
+> Période : 01/01/2026 → 20/05/2026 · 26 villes comparées
 
 | # | Ville | Total (mm) |
 |---|-------|-----------|
 | 1 | Pau | 727.3 |
 | 2 | Grenoble | 696.0 |
 | 3 | Brest | 682.4 |
-| 4 | **Morez ⬅️** | **672.1** |
+| 4 | **Morez ⬅️** | **674.7** |
 | 5 | Tarbes | 670.9 |
 | 6 | Saint-Claude | 647.3 |
 | 7 | Chambéry | 620.1 |
@@ -63,7 +63,7 @@
 | Février 2026 | 235.4 | 19 | 28 |
 | Mars 2026 | 103.8 | 18 | 31 |
 | Avril 2026 | 59.6 | 10 | 30 |
-| Mai 2026 | 114.4 | 15 | 19 |
+| Mai 2026 | 117.0 | 15 | 20 |
 
 ## 📊 Bilan hebdomadaire (12 dernières semaines)
 
@@ -80,13 +80,12 @@
 | 2026-W18 | 27/04 → 03/05/2026 | 10.7 |
 | 2026-W19 | 04/05 → 10/05/2026 | 47.3 |
 | 2026-W20 | 11/05 → 17/05/2026 | 60.4 |
-| 2026-W21 | 18/05 → 24/05/2026 | 6.4 |
+| 2026-W21 | 18/05 → 24/05/2026 | 9.0 |
 
 ## 🗓️ Détail — 30 derniers jours
 
 | Date | Précipitations (mm) |
 |------|---------------------|
-| 2026-04-20 | ☀️ 0.0 |
 | 2026-04-21 | 🌦️ 0.2 |
 | 2026-04-22 | ☀️ 0.0 |
 | 2026-04-23 | ☀️ 0.0 |
@@ -115,14 +114,15 @@
 | 2026-05-16 | 🌦️ 1.7 |
 | 2026-05-17 | ☀️ 0.0 |
 | 2026-05-18 | 🌧️ 6.1 |
-| 2026-05-19 | 🌦️ 0.3 |
+| 2026-05-19 | ☀️ 0.0 |
+| 2026-05-20 | 🌦️ 2.9 |
 
 ## 📌 Résumé
 
-- **Cette semaine** : 6.4 mm
-- **Ce mois** : 114.4 mm
-- **Total depuis le 01/01/2026** : 2238.4 mm
-- **Nombre de jours mesurés** : 504
+- **Cette semaine** : 9.0 mm
+- **Ce mois** : 117.0 mm
+- **Total depuis le 01/01/2026** : 2241.0 mm
+- **Nombre de jours mesurés** : 505
 
 ---
 *Source : [Open-Meteo](https://open-meteo.com/) · [Archive API](https://archive-api.open-meteo.com/)*
