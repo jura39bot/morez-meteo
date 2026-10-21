@@ -1,23 +1,23 @@
 # 🌧️ Précipitations — Morez, Jura (39)
 
-> Données Open-Meteo · Mise à jour : 2026-10-20
+> Données Open-Meteo · Mise à jour : 2026-10-21
 
 ## 📅 Bilan annuel
 
 | Année | Total (mm) |
 |-------|-----------|
 | 2025 | **1566.3** |
-| 2026 | **1000.5** |
+| 2026 | **1038.6** |
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2026)
 
-> Période : 01/01/2026 → 20/10/2026 · 26 villes comparées
+> Période : 01/01/2026 → 21/10/2026 · 26 villes comparées
 
 | # | Ville | Total (mm) |
 |---|-------|-----------|
-| 1 | Chambéry | 1038.3 |
-| 2 | Grenoble | 1021.8 |
-| 3 | **Morez ⬅️** | **1000.5** |
+| 1 | **Morez ⬅️** | **1038.6** |
+| 2 | Chambéry | 1038.3 |
+| 3 | Grenoble | 1021.8 |
 | 4 | Pau | 987.1 |
 | 5 | Brest | 951.8 |
 | 6 | Saint-Claude | 934.9 |
@@ -68,7 +68,7 @@
 | Juillet 2026 | 40.8 | 10 | 31 |
 | Août 2026 | 78.9 | 17 | 31 |
 | Septembre 2026 | 19.6 | 5 | 30 |
-| Octobre 2026 | 94.4 | 14 | 20 |
+| Octobre 2026 | 132.5 | 15 | 21 |
 
 ## 📊 Bilan hebdomadaire (12 dernières semaines)
 
@@ -85,13 +85,12 @@
 | 2026-W40 | 28/09 → 04/10/2026 | 8.6 |
 | 2026-W41 | 05/10 → 11/10/2026 | 46.9 |
 | 2026-W42 | 12/10 → 18/10/2026 | 18.3 |
-| 2026-W43 | 19/10 → 25/10/2026 | 21.0 |
+| 2026-W43 | 19/10 → 25/10/2026 | 59.1 |
 
 ## 🗓️ Détail — 30 derniers jours
 
 | Date | Précipitations (mm) |
 |------|---------------------|
-| 2026-09-21 | ☀️ 0.0 |
 | 2026-09-22 | ☀️ 0.0 |
 | 2026-09-23 | ☀️ 0.0 |
 | 2026-09-24 | ☀️ 0.0 |
@@ -120,14 +119,15 @@
 | 2026-10-17 | 🌧️ 5.7 |
 | 2026-10-18 | 🌧️ 11.5 |
 | 2026-10-19 | 🌦️ 3.9 |
-| 2026-10-20 | 🌧️ 17.1 |
+| 2026-10-20 | 🌧️ 14.3 |
+| 2026-10-21 | 🌧️ 40.9 |
 
 ## 📌 Résumé
 
-- **Cette semaine** : 21.0 mm
-- **Ce mois** : 94.4 mm
-- **Total depuis le 01/01/2026** : 2566.8 mm
-- **Nombre de jours mesurés** : 658
+- **Cette semaine** : 59.1 mm
+- **Ce mois** : 132.5 mm
+- **Total depuis le 01/01/2026** : 2604.9 mm
+- **Nombre de jours mesurés** : 659
 
 ---
 *Source : [Open-Meteo](https://open-meteo.com/) · [Archive API](https://archive-api.open-meteo.com/)*
