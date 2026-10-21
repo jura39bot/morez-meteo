@@ -14,7 +14,7 @@ def run():
     from .fetcher import fetch_precipitation
     from .store import load_csv, save_csv, merge
     from .reporter import build_stats, save_json, generate_markdown, save_markdown
-    from .city_ranker import fetch_all_cities, build_ranking
+    from .city_ranker import fetch_all_cities, build_ranking, fetch_place_total
     from .git_push import commit_and_push
 
     today = date.today().isoformat()
@@ -54,14 +54,19 @@ def run():
     prev_year = cur_year - 1
     log.info(f"Classement pluviométrique {cur_year}...")
     cities_cur = fetch_all_cities(f"{cur_year}-01-01", today, config.DATA_DIR)
-    morez_cur = stats["by_year"].get(str(cur_year), 0)
+    # IMPORTANT : Morez doit être calculé sur la MÊME fenêtre ET la MÊME source que les villes
+    # (l'API archive), sinon on compare un cumul archive+prévision à des cumuls archive → biais.
+    morez_cur = fetch_place_total(config.LAT, config.LON, f"{cur_year}-01-01", today)
+    csv_cur = stats["by_year"].get(str(cur_year), 0)
+    if abs(csv_cur - morez_cur) >= 1:
+        log.info(f"Écart CSV(archive+prévision) {csv_cur:.1f} mm vs archive pure {morez_cur:.1f} mm → classement basé sur l'archive")
     ranking_cur = build_ranking(morez_cur, cities_cur, top_n=10)
     log.info(f"Morez {cur_year} : {ranking_cur['morez_rank']}e/{ranking_cur['total_cities']} villes")
 
     # 7. Classement villes françaises — année précédente (cache permanent)
     log.info(f"Classement pluviométrique {prev_year}...")
     cities_prev = fetch_all_cities(f"{prev_year}-01-01", f"{prev_year}-12-31", config.DATA_DIR)
-    morez_prev = stats["by_year"].get(str(prev_year), 0)
+    morez_prev = fetch_place_total(config.LAT, config.LON, f"{prev_year}-01-01", f"{prev_year}-12-31")
     ranking_prev = build_ranking(morez_prev, cities_prev, top_n=10)
     log.info(f"Morez {prev_year} : {ranking_prev['morez_rank']}e/{ranking_prev['total_cities']} villes")
 

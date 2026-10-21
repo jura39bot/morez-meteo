@@ -16,7 +16,7 @@ from .french_cities import FRENCH_CITIES
 log = logging.getLogger(__name__)
 
 ARCHIVE_URL = "https://archive-api.open-meteo.com/v1/archive"
-CACHE_TTL_DAYS = 7  # Rafraîchi une fois par semaine
+CACHE_TTL_DAYS = 1  # 1 jour : le classement doit être calculé sur la MÊME fenêtre que Morez
 
 
 def _fetch_city_total(name: str, lat: float, lon: float, start: str, end: str) -> float:
@@ -59,9 +59,13 @@ def fetch_all_cities(start: str, end: str, cache_dir: Path) -> dict[str, float]:
         try:
             cached = json.loads(cache_path.read_text())
             cached_date = date.fromisoformat(cached.get("fetched_date", "2000-01-01"))
-            if is_past_year or (today - cached_date).days < CACHE_TTL_DAYS:
-                log.info(f"Cache villes valide ({cached_date}, {year_key}) — {len(cached['data'])} villes")
+            # IMPORTANT : on ne réutilise le cache que s'il porte sur la MÊME fenêtre
+            # (sinon les villes s'arrêtent plus tôt que Morez → faux classement)
+            same_window = cached.get("end_date") == end
+            if is_past_year or (same_window and (today - cached_date).days < CACHE_TTL_DAYS):
+                log.info(f"Cache villes valide ({cached_date}, {year_key}, -> {cached.get('end_date')}) — {len(cached['data'])} villes")
                 return cached["data"]
+            log.info(f"Cache villes périmé (fin {cached.get('end_date')} != {end}) → recalcul")
         except Exception:
             pass
 
@@ -74,14 +78,25 @@ def fetch_all_cities(start: str, end: str, cache_dir: Path) -> dict[str, float]:
         time.sleep(0.3)
 
     cache_dir.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(json.dumps({
+    payload = {
         "fetched_date": today.isoformat(),
         "start_date": start,
         "end_date": end,
+        "source": "open-meteo archive (ERA5/IFS) — même fenêtre et même source pour toutes les villes, Morez inclus",
         "data": results,
-    }, indent=2))
+    }
+    cache_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False))
+    # fichier historique (nom générique) : on le garde à jour pour ne pas laisser de données périmées
+    if start[:4] == str(today.year):
+        (cache_dir / "cities_precipitation_cache.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False))
     log.info(f"Cache villes sauvegardé : {cache_path}")
     return results
+
+
+def fetch_place_total(lat: float, lon: float, start: str, end: str) -> float:
+    """Total de précipitations d'un lieu (ex. Morez) sur la MÊME fenêtre et la MÊME source
+    que les villes de référence → comparaison honnête."""
+    return _fetch_city_total("Morez", lat, lon, start, end)
 
 
 def build_ranking(

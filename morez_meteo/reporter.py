@@ -85,6 +85,11 @@ def _ranking_table(ranking: dict, year: str, today_str: str, full_year: bool = F
         b = "**" if is_morez else ""
         lines.append(f"| {i} | {b}{city}{marker}{b} | {b}{total:.1f}{b} |")
 
+    lines += [
+        f"",
+        f"> ℹ️ Classement calculé sur la **même fenêtre et la même source** (API archive Open-Meteo) pour toutes les villes, Morez inclus.",
+        f"> Le cumul « bilan annuel » ci-dessus inclut la **prévision du jour** — d'où un écart possible de quelques mm.",
+    ]
     morez_rank = ranking["morez_rank"]
     total_cities = ranking["total_cities"]
     if morez_rank > 10:

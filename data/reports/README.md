@@ -15,16 +15,19 @@
 
 | # | Ville | Total (mm) |
 |---|-------|-----------|
-| 1 | **Morez ⬅️** | **1038.6** |
-| 2 | Chambéry | 1038.3 |
-| 3 | Grenoble | 1021.8 |
-| 4 | Pau | 987.1 |
-| 5 | Brest | 951.8 |
-| 6 | Saint-Claude | 934.9 |
-| 7 | Tarbes | 923.2 |
-| 8 | Montpellier | 866.6 |
-| 9 | Aurillac | 807.9 |
-| 10 | Lons-le-Saunier | 772.2 |
+| 1 | Grenoble | 1096.3 |
+| 2 | Chambéry | 1093.2 |
+| 3 | **Morez ⬅️** | **1024.3** |
+| 4 | Pau | 1008.4 |
+| 5 | Saint-Claude | 995.0 |
+| 6 | Brest | 969.7 |
+| 7 | Tarbes | 955.0 |
+| 8 | Montpellier | 954.5 |
+| 9 | Aurillac | 848.6 |
+| 10 | Lons-le-Saunier | 811.1 |
+
+> ℹ️ Classement calculé sur la **même fenêtre et la même source** (API archive Open-Meteo) pour toutes les villes, Morez inclus.
+> Le cumul « bilan annuel » ci-dessus inclut la **prévision du jour** — d'où un écart possible de quelques mm.
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2025)
 
@@ -42,6 +45,9 @@
 | 8 | Brest | 1188.4 |
 | 9 | Pau | 1133.8 |
 | 10 | Montpellier | 1073.3 |
+
+> ℹ️ Classement calculé sur la **même fenêtre et la même source** (API archive Open-Meteo) pour toutes les villes, Morez inclus.
+> Le cumul « bilan annuel » ci-dessus inclut la **prévision du jour** — d'où un écart possible de quelques mm.
 
 ## 📆 Bilan mensuel
 
