@@ -132,7 +132,7 @@
 
 - **Cette semaine** : 3.7 mm
 - **Ce mois** : 171.8 mm
-- **Total depuis le 01/01/2026** : 2644.2 mm
+- **Total depuis le 01/01/2026** : 1077.9 mm
 - **Nombre de jours mesurés** : 669
 
 ---

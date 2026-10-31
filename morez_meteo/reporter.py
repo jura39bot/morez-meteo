@@ -171,6 +171,7 @@ def generate_markdown(
 
     # ── Totaux résumé ─────────────────────────────────────────────────────────
     total_all = sum(data.values())
+    total_year = stats.get("by_year", {}).get(str(today.year), 0)
     current_month = today.strftime("%Y-%m")
     total_month = stats["by_month"].get(current_month, 0)
     current_week = _week_key(today)
@@ -181,7 +182,7 @@ def generate_markdown(
         "",
         f"- **Cette semaine** : {total_week:.1f} mm",
         f"- **Ce mois** : {total_month:.1f} mm",
-        f"- **Total depuis le 01/01/2026** : {total_all:.1f} mm",
+        f"- **Total depuis le 01/01/{today.year}** : {total_year:.1f} mm",
         f"- **Nombre de jours mesurés** : {len(data)}",
         "",
         "---",
