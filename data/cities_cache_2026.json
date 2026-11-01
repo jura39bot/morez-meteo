@@ -1,7 +1,7 @@
 {
-  "fetched_date": "2026-10-31",
+  "fetched_date": "2026-11-01",
   "start_date": "2026-01-01",
-  "end_date": "2026-10-31",
+  "end_date": "2026-11-01",
   "source": "open-meteo archive (ERA5/IFS) — même fenêtre et même source pour toutes les villes, Morez inclus",
   "data": {
     "Brest": 1034.3,
@@ -10,7 +10,7 @@
     "Nantes": 724.4,
     "Rouen": 687.6,
     "Lille": 578.3,
-    "Grenoble": 1114.2,
+    "Grenoble": 1114.4,
     "Chambéry": 1116.7,
     "Pau": 1020.1,
     "Tarbes": 966.7,
@@ -24,8 +24,8 @@
     "Saint-Claude": 1048.0,
     "La Rochelle": 686.8,
     "Bordeaux": 661.5,
-    "Marseille": 700.5,
-    "Nice": 558.7,
+    "Marseille": 702.7,
+    "Nice": 558.8,
     "Montpellier": 955.9,
     "Paris": 576.2,
     "Lyon": 663.9
