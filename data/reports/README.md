@@ -1,6 +1,6 @@
 # 🌧️ Précipitations — Morez, Jura (39)
 
-> Données Open-Meteo · Mise à jour : 2026-11-01
+> Données Open-Meteo · Mise à jour : 2026-11-02
 
 ## 📅 Bilan annuel
 
@@ -11,15 +11,15 @@
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2026)
 
-> Période : 01/01/2026 → 01/11/2026 · 26 villes comparées
+> Période : 01/01/2026 → 02/11/2026 · 26 villes comparées
 
 | # | Ville | Total (mm) |
 |---|-------|-----------|
-| 1 | Chambéry | 1116.7 |
-| 2 | Grenoble | 1114.4 |
+| 1 | Chambéry | 1117.4 |
+| 2 | Grenoble | 1114.9 |
 | 3 | **Morez ⬅️** | **1079.7** |
 | 4 | Saint-Claude | 1048.0 |
-| 5 | Brest | 1034.3 |
+| 5 | Brest | 1034.7 |
 | 6 | Pau | 1020.1 |
 | 7 | Tarbes | 966.7 |
 | 8 | Montpellier | 955.9 |
@@ -75,13 +75,12 @@
 | Août 2026 | 78.9 | 17 | 31 |
 | Septembre 2026 | 19.6 | 5 | 30 |
 | Octobre 2026 | 171.8 | 20 | 31 |
-| Novembre 2026 | 0.0 | 0 | 1 |
+| Novembre 2026 | 0.0 | 0 | 2 |
 
 ## 📊 Bilan hebdomadaire (12 dernières semaines)
 
 | Semaine | Période | Total (mm) |
 |---------|---------|-----------|
-| 2026-W33 | 10/08 → 16/08/2026 | 1.6 |
 | 2026-W34 | 17/08 → 23/08/2026 | 34.9 |
 | 2026-W35 | 24/08 → 30/08/2026 | 31.2 |
 | 2026-W36 | 31/08 → 06/09/2026 | 0.7 |
@@ -93,12 +92,12 @@
 | 2026-W42 | 12/10 → 18/10/2026 | 18.3 |
 | 2026-W43 | 19/10 → 25/10/2026 | 94.7 |
 | 2026-W44 | 26/10 → 01/11/2026 | 3.7 |
+| 2026-W45 | 02/11 → 08/11/2026 | 0.0 |
 
 ## 🗓️ Détail — 30 derniers jours
 
 | Date | Précipitations (mm) |
 |------|---------------------|
-| 2026-10-03 | 🌦️ 1.3 |
 | 2026-10-04 | 🌦️ 1.3 |
 | 2026-10-05 | ☀️ 0.0 |
 | 2026-10-06 | ☀️ 0.1 |
@@ -128,13 +127,14 @@
 | 2026-10-30 | ☀️ 0.0 |
 | 2026-10-31 | ☀️ 0.0 |
 | 2026-11-01 | ☀️ 0.0 |
+| 2026-11-02 | ☀️ 0.0 |
 
 ## 📌 Résumé
 
-- **Cette semaine** : 3.7 mm
+- **Cette semaine** : 0.0 mm
 - **Ce mois** : 0.0 mm
 - **Total depuis le 01/01/2026** : 1077.9 mm
-- **Nombre de jours mesurés** : 670
+- **Nombre de jours mesurés** : 671
 
 ---
 *Source : [Open-Meteo](https://open-meteo.com/) · [Archive API](https://archive-api.open-meteo.com/)*
