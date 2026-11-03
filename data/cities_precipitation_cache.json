@@ -1,17 +1,17 @@
 {
-  "fetched_date": "2026-11-02",
+  "fetched_date": "2026-11-03",
   "start_date": "2026-01-01",
-  "end_date": "2026-11-02",
+  "end_date": "2026-11-03",
   "source": "open-meteo archive (ERA5/IFS) — même fenêtre et même source pour toutes les villes, Morez inclus",
   "data": {
-    "Brest": 1034.7,
-    "Cherbourg": 708.8,
-    "Rennes": 657.7,
-    "Nantes": 724.4,
-    "Rouen": 689.7,
-    "Lille": 580.3,
+    "Brest": 1036.1,
+    "Cherbourg": 715.5,
+    "Rennes": 657.6,
+    "Nantes": 724.6,
+    "Rouen": 689.8,
+    "Lille": 579.4,
     "Grenoble": 1114.9,
-    "Chambéry": 1117.4,
+    "Chambéry": 1117.2,
     "Pau": 1020.1,
     "Tarbes": 966.7,
     "Aurillac": 875.2,
@@ -26,8 +26,8 @@
     "Bordeaux": 661.5,
     "Marseille": 702.6,
     "Nice": 558.7,
-    "Montpellier": 955.9,
-    "Paris": 577.4,
+    "Montpellier": 956.0,
+    "Paris": 577.2,
     "Lyon": 663.9
   }
 }
