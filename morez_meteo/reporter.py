@@ -68,9 +68,13 @@ def save_json(reports_dir: Path, stats: dict) -> None:
     log.info(f"JSON sauvegardé : {path}")
 
 
-def _ranking_table(ranking: dict, year: str, today_str: str, full_year: bool = False) -> list[str]:
+def _ranking_table(ranking: dict, year: str, today_str: str, full_year: bool = False,
+                   end_label: str | None = None) -> list[str]:
     """Génère le bloc Markdown d'un classement pour une année donnée."""
-    period = f"01/01/{year} → 31/12/{year}" if full_year else f"01/01/{year} → {today_str}"
+    if full_year:
+        period = f"01/01/{year} → 31/12/{year}"
+    else:
+        period = f"01/01/{year} → {end_label or today_str}"
     lines = [
         f"## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine ({year})",
         f"",
@@ -88,8 +92,11 @@ def _ranking_table(ranking: dict, year: str, today_str: str, full_year: bool = F
     lines += [
         f"",
         f"> ℹ️ Classement calculé sur la **même fenêtre et la même source** (API archive Open-Meteo) pour toutes les villes, Morez inclus.",
-        f"> Le cumul « bilan annuel » ci-dessus inclut la **prévision du jour** — d'où un écart possible de quelques mm.",
     ]
+    if not full_year:
+        lines += [
+            f"> Le **cumul officiel** de Morez est celui du bilan annuel (station locale) ; celui du classement vient de l'archive ERA5/IFS — écart de quelques mm possible.",
+        ]
     morez_rank = ranking["morez_rank"]
     total_cities = ranking["total_cities"]
     if morez_rank > 10:
@@ -109,6 +116,7 @@ def generate_markdown(
     ranking_current: dict | None = None,
     ranking_prev: dict | None = None,
     prev_year: str | None = None,
+    projection: dict | None = None,
 ) -> str:
     """Génère le rapport Markdown complet."""
     today = date.today()
@@ -126,11 +134,31 @@ def generate_markdown(
         lines.append(f"| {yr} | **{total:.1f}** |")
     lines.append("")
 
+    # ── Projection de fin d'année ─────────────────────────────────────────────
+    if projection:
+        cur = str(today.year)
+        cumul = stats["by_year"].get(cur, 0)
+        lines += [
+            f"### 📈 Projection {cur}",
+            "",
+            f"| Indicateur | Valeur |",
+            f"|-----------|--------|",
+            f"| Cumul au {today.strftime('%d/%m/%Y')} | **{cumul:.1f} mm** |",
+            f"| Nov+Déc moyens ({projection['years'] and min(projection['years'])}-{max(projection['years'])}) | {projection['avg_nov_dec']:.1f} mm |",
+            f"| **Projection fin {cur}** | **~{projection['projection']:.1f} mm** |",
+            f"| Moyenne annuelle historique | {projection['avg_year']:.1f} mm |",
+            f"| Écart à la moyenne | **{projection['delta_pct']:+.1f} %** |",
+            "",
+            f"> Projection = cumul actuel + moyenne des cumuls novembre+décembre des années précédentes.",
+            "",
+        ]
+
     # ── Top 10 — Année courante ────────────────────────────────────────────────
     yr_label = today.strftime("%Y")
     today_str = today.strftime("%d/%m/%Y")
     if ranking_current:
-        lines += _ranking_table(ranking_current, yr_label, today_str, full_year=False)
+        lines += _ranking_table(ranking_current, yr_label, today_str, full_year=False,
+                                end_label=(ranking_current.get("end_date") or "").replace("-", "/"))
 
     # ── Top 10 — Année précédente (bilan complet) ─────────────────────────────
     if ranking_prev and prev_year:

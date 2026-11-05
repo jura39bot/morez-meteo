@@ -14,7 +14,8 @@ def run():
     from .fetcher import fetch_precipitation
     from .store import load_csv, save_csv, merge
     from .reporter import build_stats, save_json, generate_markdown, save_markdown
-    from .city_ranker import fetch_all_cities, build_ranking, fetch_place_total
+    from .city_ranker import (fetch_all_cities, build_ranking, fetch_place_total,
+                              ranking_end, fetch_history, project_year)
     from .git_push import commit_and_push
 
     today = date.today().isoformat()
@@ -53,15 +54,31 @@ def run():
     cur_year = date.today().year
     prev_year = cur_year - 1
     log.info(f"Classement pluviométrique {cur_year}...")
-    cities_cur = fetch_all_cities(f"{cur_year}-01-01", today, config.DATA_DIR)
+    # L'archive ERA5/IFS a ~7 jours de retard : on arrête la fenêtre au dernier jour fiable,
+    # sinon l'API renvoie 0.0 pour les jours non intégrés (totaux sous-estimés).
+    rank_end = ranking_end(date.today())
+    log.info(f"Fenêtre classement : {cur_year}-01-01 → {rank_end} (archive à J-{7})")
+    cities_cur = fetch_all_cities(f"{cur_year}-01-01", rank_end, config.DATA_DIR)
     # IMPORTANT : Morez doit être calculé sur la MÊME fenêtre ET la MÊME source que les villes
     # (l'API archive), sinon on compare un cumul archive+prévision à des cumuls archive → biais.
-    morez_cur = fetch_place_total(config.LAT, config.LON, f"{cur_year}-01-01", today)
+    morez_cur = fetch_place_total(config.LAT, config.LON, f"{cur_year}-01-01", rank_end)
     csv_cur = stats["by_year"].get(str(cur_year), 0)
     if abs(csv_cur - morez_cur) >= 1:
         log.info(f"Écart CSV(archive+prévision) {csv_cur:.1f} mm vs archive pure {morez_cur:.1f} mm → classement basé sur l'archive")
     ranking_cur = build_ranking(morez_cur, cities_cur, top_n=10)
+    ranking_cur["end_date"] = rank_end
     log.info(f"Morez {cur_year} : {ranking_cur['morez_rank']}e/{ranking_cur['total_cities']} villes")
+
+    # Projection fin d'année vs moyenne historique (2019 → année précédente)
+    projection = None
+    try:
+        history = fetch_history(config.LAT, config.LON, config.DATA_DIR)
+        if csv_cur:
+            projection = project_year(csv_cur, history)
+            log.info(f"Projection {cur_year} : {projection['projection']} mm "
+                     f"({projection['delta_pct']}% vs moyenne {projection['avg_year']} mm)")
+    except Exception as e:
+        log.warning(f"Projection indisponible : {e}")
 
     # 7. Classement villes françaises — année précédente (cache permanent)
     log.info(f"Classement pluviométrique {prev_year}...")
@@ -77,6 +94,7 @@ def run():
         ranking_current=ranking_cur,
         ranking_prev=ranking_prev,
         prev_year=str(prev_year),
+        projection=projection,
     )
     save_markdown(config.REPORTS_DIR, md)
 

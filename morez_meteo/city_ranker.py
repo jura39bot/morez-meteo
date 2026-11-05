@@ -17,10 +17,20 @@ log = logging.getLogger(__name__)
 
 ARCHIVE_URL = "https://archive-api.open-meteo.com/v1/archive"
 CACHE_TTL_DAYS = 1  # 1 jour : le classement doit être calculé sur la MÊME fenêtre que Morez
+# L'archive est à jour (vérifié le 05/11/2026 : Montpellier 39,5 + 91,1 mm
+# les 04 et 05/11). Un 0.0 signifie "pas de pluie", pas "pas de donnée".
+RANKING_LAG_DAYS = 0
+HISTORY_CACHE = "history_yearly.json"
 
 
-def _fetch_city_total(name: str, lat: float, lon: float, start: str, end: str) -> float:
-    """Récupère le total de précipitations d'une ville sur la période."""
+def ranking_end(today: date | None = None) -> str:
+    """Dernier jour de la fenêtre de classement (archive à jour -> aujourd'hui)."""
+    d = today or date.today()
+    return (d - timedelta(days=RANKING_LAG_DAYS)).isoformat()
+
+
+def _fetch_series(lat: float, lon: float, start: str, end: str):
+    """Série journalière (dates, valeurs) sur une fenêtre."""
     params = urllib.parse.urlencode({
         "latitude": lat,
         "longitude": lon,
@@ -30,12 +40,17 @@ def _fetch_city_total(name: str, lat: float, lon: float, start: str, end: str) -
         "timezone": "Europe/Paris",
     })
     url = f"{ARCHIVE_URL}?{params}"
+    req = urllib.request.Request(url, headers={"User-Agent": "morez-meteo/1.0"})
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        data = json.loads(resp.read())
+    return data["daily"]["time"], data["daily"]["precipitation_sum"]
+
+
+def _fetch_city_total(name: str, lat: float, lon: float, start: str, end: str) -> float:
+    """Récupère le total de précipitations d'une ville sur la période."""
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "morez-meteo/1.0"})
-        with urllib.request.urlopen(req, timeout=20) as resp:
-            data = json.loads(resp.read())
-            values = data["daily"]["precipitation_sum"]
-            return round(sum(v or 0 for v in values), 1)
+        _, values = _fetch_series(lat, lon, start, end)
+        return round(sum(v or 0 for v in values), 1)
     except Exception as e:
         log.warning(f"Erreur fetch {name}: {e}")
         return 0.0
@@ -119,4 +134,56 @@ def build_ranking(
         "morez_rank": morez_rank,
         "total_cities": len(ranked),
         "morez_total": morez_total,
+    }
+
+
+def fetch_history(lat: float, lon: float, cache_dir: Path, first_year: int = 2019) -> dict:
+    """Totaux annuels des annees revolues + cumul nov+dec (cache permanent)."""
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    path = cache_dir / HISTORY_CACHE
+    last_full = date.today().year - 1
+    if path.exists():
+        try:
+            c = json.loads(path.read_text())
+            if c.get("last_full_year") == last_full and c.get("first_year") == first_year:
+                return c
+        except Exception:
+            pass
+
+    years, novdec = {}, {}
+    for y in range(first_year, last_full + 1):
+        log.info(f"Historique {y}...")
+        try:
+            t, v = _fetch_series(lat, lon, f"{y}-01-01", f"{y}-12-31")
+        except Exception as e:
+            log.warning(f"Erreur historique {y}: {e}")
+            continue
+        years[str(y)] = round(sum(x or 0 for x in v), 1)
+        novdec[str(y)] = round(sum((x or 0) for d, x in zip(t, v) if d[5:7] in ("11", "12")), 1)
+        time.sleep(0.3)
+
+    payload = {
+        "first_year": first_year,
+        "last_full_year": last_full,
+        "years": years,
+        "nov_dec": novdec,
+    }
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False))
+    return payload
+
+
+def project_year(ytd: float, history: dict) -> dict:
+    """Projection de fin d'annee = cumul + moyenne nov/dec des annees passees."""
+    nd = [v for v in history.get("nov_dec", {}).values() if v]
+    vals = [v for v in history.get("years", {}).values() if v]
+    avg_nd = sum(nd) / len(nd) if nd else 0.0
+    avg_year = sum(vals) / len(vals) if vals else 0.0
+    proj = ytd + avg_nd
+    delta = round((proj - avg_year) / avg_year * 100, 1) if avg_year else 0.0
+    return {
+        "projection": round(proj, 1),
+        "avg_year": round(avg_year, 1),
+        "avg_nov_dec": round(avg_nd, 1),
+        "delta_pct": delta,
+        "years": history.get("years", {}),
     }

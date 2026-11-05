@@ -7,11 +7,23 @@
 | Année | Total (mm) |
 |-------|-----------|
 | 2025 | **1566.3** |
-| 2026 | **1078.7** |
+| 2026 | **1078.6** |
+
+### 📈 Projection 2026
+
+| Indicateur | Valeur |
+|-----------|--------|
+| Cumul au 05/11/2026 | **1078.6 mm** |
+| Nov+Déc moyens (2019-2025) | 337.0 mm |
+| **Projection fin 2026** | **~1415.6 mm** |
+| Moyenne annuelle historique | 1663.2 mm |
+| Écart à la moyenne | **-14.9 %** |
+
+> Projection = cumul actuel + moyenne des cumuls novembre+décembre des années précédentes.
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2026)
 
-> Période : 01/01/2026 → 05/11/2026 · 26 villes comparées
+> Période : 01/01/2026 → 2026/11/05 · 26 villes comparées
 
 | # | Ville | Total (mm) |
 |---|-------|-----------|
@@ -27,7 +39,7 @@
 | 10 | Lons-le-Saunier | 847.7 |
 
 > ℹ️ Classement calculé sur la **même fenêtre et la même source** (API archive Open-Meteo) pour toutes les villes, Morez inclus.
-> Le cumul « bilan annuel » ci-dessus inclut la **prévision du jour** — d'où un écart possible de quelques mm.
+> Le **cumul officiel** de Morez est celui du bilan annuel (station locale) ; celui du classement vient de l'archive ERA5/IFS — écart de quelques mm possible.
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2025)
 
@@ -47,7 +59,6 @@
 | 10 | Montpellier | 1073.3 |
 
 > ℹ️ Classement calculé sur la **même fenêtre et la même source** (API archive Open-Meteo) pour toutes les villes, Morez inclus.
-> Le cumul « bilan annuel » ci-dessus inclut la **prévision du jour** — d'où un écart possible de quelques mm.
 
 ## 📆 Bilan mensuel
 
@@ -75,7 +86,7 @@
 | Août 2026 | 78.9 | 17 | 31 |
 | Septembre 2026 | 19.6 | 5 | 30 |
 | Octobre 2026 | 171.8 | 20 | 31 |
-| Novembre 2026 | 0.8 | 1 | 5 |
+| Novembre 2026 | 0.7 | 1 | 5 |
 
 ## 📊 Bilan hebdomadaire (12 dernières semaines)
 
@@ -92,7 +103,7 @@
 | 2026-W42 | 12/10 → 18/10/2026 | 18.3 |
 | 2026-W43 | 19/10 → 25/10/2026 | 94.7 |
 | 2026-W44 | 26/10 → 01/11/2026 | 3.7 |
-| 2026-W45 | 02/11 → 08/11/2026 | 0.8 |
+| 2026-W45 | 02/11 → 08/11/2026 | 0.7 |
 
 ## 🗓️ Détail — 30 derniers jours
 
@@ -127,13 +138,13 @@
 | 2026-11-02 | ☀️ 0.0 |
 | 2026-11-03 | ☀️ 0.0 |
 | 2026-11-04 | ☀️ 0.0 |
-| 2026-11-05 | 🌦️ 0.8 |
+| 2026-11-05 | 🌦️ 0.7 |
 
 ## 📌 Résumé
 
-- **Cette semaine** : 0.8 mm
-- **Ce mois** : 0.8 mm
-- **Total depuis le 01/01/2026** : 1078.7 mm
+- **Cette semaine** : 0.7 mm
+- **Ce mois** : 0.7 mm
+- **Total depuis le 01/01/2026** : 1078.6 mm
 - **Nombre de jours mesurés** : 674
 
 ---
