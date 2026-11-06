@@ -57,7 +57,7 @@ def run():
     # L'archive ERA5/IFS a ~7 jours de retard : on arrête la fenêtre au dernier jour fiable,
     # sinon l'API renvoie 0.0 pour les jours non intégrés (totaux sous-estimés).
     rank_end = ranking_end(date.today())
-    log.info(f"Fenêtre classement : {cur_year}-01-01 → {rank_end} (archive à J-{7})")
+    log.info(f"Fenêtre classement : {cur_year}-01-01 → {rank_end} (archive à jour)")
     cities_cur = fetch_all_cities(f"{cur_year}-01-01", rank_end, config.DATA_DIR)
     # IMPORTANT : Morez doit être calculé sur la MÊME fenêtre ET la MÊME source que les villes
     # (l'API archive), sinon on compare un cumul archive+prévision à des cumuls archive → biais.
