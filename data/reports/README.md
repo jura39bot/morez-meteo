@@ -1,42 +1,42 @@
 # 🌧️ Précipitations — Morez, Jura (39)
 
-> Données Open-Meteo · Mise à jour : 2026-11-20
+> Données Open-Meteo · Mise à jour : 2026-11-21
 
 ## 📅 Bilan annuel
 
 | Année | Total (mm) |
 |-------|-----------|
 | 2025 | **1566.3** |
-| 2026 | **1232.9** |
+| 2026 | **1254.2** |
 
 ### 📈 Projection 2026
 
 | Indicateur | Valeur |
 |-----------|--------|
-| Cumul au 20/11/2026 | **1232.9 mm** |
+| Cumul au 21/11/2026 | **1254.2 mm** |
 | Nov+Déc moyens (2019-2025) | 337.0 mm |
-| **Projection fin 2026** | **~1569.9 mm** |
+| **Projection fin 2026** | **~1591.2 mm** |
 | Moyenne annuelle historique | 1663.2 mm |
-| Écart à la moyenne | **-5.6 %** |
+| Écart à la moyenne | **-4.3 %** |
 
 > Projection = cumul actuel + moyenne des cumuls novembre+décembre des années précédentes.
 
 ## 🏆 Top 10 villes les plus pluvieuses — France métropolitaine (2026)
 
-> Période : 01/01/2026 → 2026/11/20 · 26 villes comparées
+> Période : 01/01/2026 → 2026/11/21 · 26 villes comparées
 
 | # | Ville | Total (mm) |
 |---|-------|-----------|
-| 1 | Chambéry | 1312.2 |
-| 2 | Grenoble | 1272.1 |
-| 3 | **Morez ⬅️** | **1243.6** |
-| 4 | Saint-Claude | 1210.3 |
-| 5 | Montpellier | 1161.3 |
-| 6 | Brest | 1140.3 |
-| 7 | Pau | 1081.4 |
-| 8 | Tarbes | 1016.7 |
-| 9 | Lons-le-Saunier | 979.7 |
-| 10 | Aurillac | 978.8 |
+| 1 | Chambéry | 1307.2 |
+| 2 | Grenoble | 1278.8 |
+| 3 | **Morez ⬅️** | **1254.1** |
+| 4 | Saint-Claude | 1227.0 |
+| 5 | Montpellier | 1161.6 |
+| 6 | Brest | 1145.4 |
+| 7 | Pau | 1090.0 |
+| 8 | Tarbes | 1020.3 |
+| 9 | Lons-le-Saunier | 989.4 |
+| 10 | Aurillac | 981.2 |
 
 > ℹ️ Classement calculé sur la **même fenêtre et la même source** (API archive Open-Meteo) pour toutes les villes, Morez inclus.
 > Le **cumul officiel** de Morez est celui du bilan annuel (station locale) ; celui du classement vient de l'archive ERA5/IFS — écart de quelques mm possible.
@@ -86,7 +86,7 @@
 | Août 2026 | 78.9 | 17 | 31 |
 | Septembre 2026 | 19.6 | 5 | 30 |
 | Octobre 2026 | 171.8 | 20 | 31 |
-| Novembre 2026 | 155.0 | 15 | 20 |
+| Novembre 2026 | 176.3 | 16 | 21 |
 
 ## 📊 Bilan hebdomadaire (12 dernières semaines)
 
@@ -103,13 +103,12 @@
 | 2026-W44 | 26/10 → 01/11/2026 | 3.7 |
 | 2026-W45 | 02/11 → 08/11/2026 | 4.0 |
 | 2026-W46 | 09/11 → 15/11/2026 | 47.7 |
-| 2026-W47 | 16/11 → 22/11/2026 | 103.3 |
+| 2026-W47 | 16/11 → 22/11/2026 | 124.6 |
 
 ## 🗓️ Détail — 30 derniers jours
 
 | Date | Précipitations (mm) |
 |------|---------------------|
-| 2026-10-22 | 🌦️ 1.2 |
 | 2026-10-23 | 🌧️ 18.1 |
 | 2026-10-24 | 🌧️ 15.3 |
 | 2026-10-25 | 🌧️ 19.8 |
@@ -138,14 +137,15 @@
 | 2026-11-17 | 🌧️ 24.2 |
 | 2026-11-18 | 🌧️ 13.9 |
 | 2026-11-19 | 🌧️ 28.6 |
-| 2026-11-20 | 🌧️ 12.8 |
+| 2026-11-20 | 🌧️ 25.2 |
+| 2026-11-21 | 🌧️ 8.9 |
 
 ## 📌 Résumé
 
-- **Cette semaine** : 103.3 mm
-- **Ce mois** : 155.0 mm
-- **Total depuis le 01/01/2026** : 1232.9 mm
-- **Nombre de jours mesurés** : 689
+- **Cette semaine** : 124.6 mm
+- **Ce mois** : 176.3 mm
+- **Total depuis le 01/01/2026** : 1254.2 mm
+- **Nombre de jours mesurés** : 690
 
 ---
 *Source : [Open-Meteo](https://open-meteo.com/) · [Archive API](https://archive-api.open-meteo.com/)*
